@@ -1,0 +1,12 @@
+<%= form_for [@gallery, @photo], html: { multipart: true } do |f| %>
+    <div>
+        <%= f.label :caption %>
+        <%= f.text_field :caption %>
+    </div>
+    <div>
+        <%= f.label :photos %>
+        <%= f.file_field :photos, multiple: true %>
+    </div>
+
+    <%= f.submit %>
+<% end %>

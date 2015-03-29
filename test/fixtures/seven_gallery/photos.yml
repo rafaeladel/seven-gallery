@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caption: first_caption
+  gallery_id: one
+
+two:
+  caption: second_caption
+  gallery_id: one

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gallery.title %>
+</p>
+
+<h4>Photos:</h4>
+<% @gallery.photos.each do |photo| %>
+    <p>
+      <%= photo.caption %> -
+      <% photo.photos.each do |img| %>
+          <%= image_tag img %>
+      <% end %>
+      <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
+      <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: 'Sure?' } %>
+    </p>
+<% end %>
+
+<%= link_to 'Add photo', new_gallery_photo_path(@gallery) %> |
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>
