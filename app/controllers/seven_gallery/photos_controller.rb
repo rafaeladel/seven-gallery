@@ -18,7 +18,6 @@ module SevenGallery
 
     def create
       @photo = @gallery.photos.create(photo_params)
-      @photo.photos = params[:photo][:photos]
       if @photo.save
         redirect_to @gallery
       else
@@ -56,7 +55,7 @@ module SevenGallery
       end
 
       def photo_params
-        params.require(:photo).permit(:caption, :photos)
+        params.require(:photo).permit(:caption, :image)
       end
 
   end

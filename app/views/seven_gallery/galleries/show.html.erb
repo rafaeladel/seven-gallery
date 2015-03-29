@@ -8,10 +8,7 @@
 <h4>Photos:</h4>
 <% @gallery.photos.each do |photo| %>
     <p>
-      <%= photo.caption %> -
-      <% photo.photos.each do |img| %>
-          <%= image_tag img %>
-      <% end %>
+      <%= photo.caption %> - <%= image_tag photo.image %>
       <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
       <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: 'Sure?' } %>
     </p>

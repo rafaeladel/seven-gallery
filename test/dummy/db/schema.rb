@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329175330) do
+ActiveRecord::Schema.define(version: 20150329123256) do
 
   create_table "seven_gallery_galleries", force: :cascade do |t|
     t.string   "title"
@@ -19,7 +19,14 @@ ActiveRecord::Schema.define(version: 20150329175330) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "seven_gallery_photos" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "seven_gallery_photos", force: :cascade do |t|
+    t.string   "caption"
+    t.string   "image"
+    t.integer  "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "seven_gallery_photos", ["gallery_id"], name: "index_seven_gallery_photos_on_gallery_id"
 
 end
