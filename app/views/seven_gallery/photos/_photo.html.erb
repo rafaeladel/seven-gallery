@@ -1,0 +1,9 @@
+<h3>Photos: </h3>
+<% @gallery.photos.each do |photo| %>
+    <p>
+      <%= photo.caption %> - <%= image_tag photo.image %>
+      <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
+      <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: 'Sure?' } %>
+    </p>
+<% end %>
+

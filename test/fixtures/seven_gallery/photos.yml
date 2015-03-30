@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+photo_one:
   caption: first_caption
-  gallery_id: one
+  gallery: gallery_one
+  is_new: true
 
-two:
+photo_two:
   caption: second_caption
-  gallery_id: one
+  gallery: gallery_one
+  is_new: false
+
+photo_three:
+  caption: third_caption
+  gallery: gallery_one
+  is_new: true

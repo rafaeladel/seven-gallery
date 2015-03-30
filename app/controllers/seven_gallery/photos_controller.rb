@@ -19,7 +19,7 @@ module SevenGallery
     def create
       @photo = @gallery.photos.create(photo_params)
       if @photo.save
-        redirect_to @gallery
+        render json: { :success => true, :return_url => photos_info_gallery_photos_path(@gallery) }
       else
         render 'new'
       end
@@ -36,9 +36,24 @@ module SevenGallery
       end
     end
 
+    def photos_info
+      @photos = Photo.where(is_new: true)
+    end
+
+    def update_photos_info
+      @photos = Photo.update(params[:photos].keys, params[:photos].values)
+      @photos.reject! { |photo| photo.valid? }
+      puts @photos.inspect
+      if @photos.empty?
+        redirect_to @gallery
+      else
+        render :photos_info
+      end
+    end
+
     def destroy
-      @gallery.destroy
-      redirect_to galleries_url, notice: 'Photo was successfully destroyed.'
+      @photo.destroy
+      redirect_to @gallery, notice: 'Photo was successfully destroyed.'
     end
 
     private

@@ -3,7 +3,8 @@ require 'test_helper'
 module SevenGallery
   class GalleriesControllerTest < ActionController::TestCase
     setup do
-      @gallery = galleries(:one)
+      @gallery = seven_gallery_galleries(:gallery_one)
+      @routes = SevenGallery::Engine.routes
     end
 
     test "should get index" do
