@@ -2,15 +2,16 @@ require_dependency "seven_gallery/application_controller"
 
 module SevenGallery
   class GalleriesController < ApplicationController
-    before_action :get_gallery, only: [:show, :edit, :update, :destroy]
+    before_action :get_gallery, only: [:show, :edit, :update, :destroy, :get_arrange, :post_arrange]
 
     # GET /galleries
     def index
-      @galleries = Gallery.all
+      @galleries = Gallery.paginate(page: params[:page], per_page: 10)
     end
 
     # GET /galleries/1
     def show
+      @photos = Photo.where(gallery_id: @gallery).paginate(page: params[:page], per_page: 5)
     end
 
     # GET /galleries/new
@@ -40,6 +41,15 @@ module SevenGallery
       else
         render :edit
       end
+    end
+
+    def get_arrange
+    end
+
+    def post_arrange
+      puts Hash[params[:photo].zip ["position"]*params[:photo]. (0..params[:photo].size - 1)]
+      params
+      render json: { result: params[:photo] }
     end
 
     # DELETE /galleries/1

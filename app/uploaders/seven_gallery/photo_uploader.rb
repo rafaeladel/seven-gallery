@@ -25,16 +25,35 @@ module SevenGallery
     # end
 
     # Process files as they are uploaded:
-    process :resize_to_fit => [200, 300]
+    # process :resize_to_limit => [800, 600]
     #
     # def scale(width, height)
     #   # do something
     # end
 
     # Create different versions of your uploaded files:
-    # version :thumb do
-    #   process :resize_to_fit => [50, 50]
-    # end
+    version :large do
+      process :resize_to_limit => [700, 500]
+    end
+
+    version :thumb do
+      process :process_crop
+      process :resize_to_fit => [100, 100]
+    end
+
+    def process_crop
+      puts "test"
+      if model.crop_x.present?
+        resize_to_limit(800, 600)
+        manipulate! do |img|
+          x = model.crop_x.to_i
+          y = model.crop_y.to_i
+          w = model.crop_w.to_i
+          h = model.crop_h.to_i
+          img.crop "#{w}x#{h}+#{x}+#{y}"
+        end
+      end
+    end
 
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:

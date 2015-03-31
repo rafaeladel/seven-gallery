@@ -1,5 +1,9 @@
 SevenGallery::Engine.routes.draw do
   resources :galleries do
+    member do
+      get "arrange_photos", to: "galleries#get_arrange"
+      post "arrange_photos", to: "galleries#post_arrange"
+    end
     resources :photos do
       collection do
         get "photos_info"

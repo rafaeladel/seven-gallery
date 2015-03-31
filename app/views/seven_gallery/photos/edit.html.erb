@@ -1,5 +1,15 @@
 <h1>Edit photo</h1>
 
-<%= render 'seven_gallery/photos/form' %>
+<div class="image_wrapper">
+  <div class="row">
+    <%= render "seven_gallery/photos/image_wrapper", photo: @photo %>
+  </div>
+  <div class="row">
+    <%= form_for [@gallery, @photo], html: {multipart: true} do |f| %>
+        <%= render "fields", f: f %>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Back', galleries_path %>

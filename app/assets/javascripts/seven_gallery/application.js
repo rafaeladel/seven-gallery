@@ -12,6 +12,8 @@
 //
 
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require jquery.Jcrop
 //= require dropzone
 //= require_tree .

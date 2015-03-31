@@ -1,9 +1,13 @@
-<h3>Photos: </h3>
-<% @gallery.photos.each do |photo| %>
-    <p>
-      <%= photo.caption %> - <%= image_tag photo.image %>
-      <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
-      <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: 'Sure?' } %>
-    </p>
-<% end %>
+<div class="row">
+  <h3>Photos: </h3>
 
+  <div>
+    <% photos.each do |photo| %>
+      <div id="photo_<%= photo.id %>">
+        <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>
+        <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
+        <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: {confirm: 'Sure?'} %>
+      </div>
+    <% end %>
+  </div>
+</div>

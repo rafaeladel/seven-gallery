@@ -2,3 +2,21 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+/*.image_cropper {*/
+    /*width: 700px;*/
+/*}*/
+
+/*.image_viewer {*/
+    /*position: relative;*/
+/*}*/
+
+/*.preview_wrapper {*/
+    /*position: absolute;*/
+    /*right: -120px;*/
+    /*top: 0;*/
+/*}*/
+
+.photos_wrapper div {
+    margin: 10px 0;
+}

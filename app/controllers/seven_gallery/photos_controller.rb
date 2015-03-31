@@ -43,7 +43,6 @@ module SevenGallery
     def update_photos_info
       @photos = Photo.update(params[:photos].keys, params[:photos].values)
       @photos.reject! { |photo| photo.valid? }
-      puts @photos.inspect
       if @photos.empty?
         redirect_to @gallery
       else
@@ -70,7 +69,7 @@ module SevenGallery
       end
 
       def photo_params
-        params.require(:photo).permit(:caption, :image)
+        params.require(:photo).permit(:caption, :image, :description, :is_featured, :alt, :crop_x, :crop_y, :crop_w, :crop_h)
       end
 
   end

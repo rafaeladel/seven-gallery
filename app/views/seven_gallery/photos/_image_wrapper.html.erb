@@ -1,0 +1,11 @@
+<div class="col-md-7 image_viewer">
+  <p>Click anywhere on the image to start cropping!</p>
+  <%= image_tag photo.image_url(:large), class: "image_cropper" %>
+
+  <div class="col-md-1 preview_wrapper">
+    <h4>Preview</h4>
+    <div style="width: 100px; height: 100px; overflow: hidden">
+      <%= image_tag photo.image_url(:large), class: "preview" %>
+    </div>
+  </div>
+</div>

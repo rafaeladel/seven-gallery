@@ -30,7 +30,6 @@ module SevenGallery
     end
 
 
-
     test "delete photo successfully" do
       assert_difference "Photo.count", -1 do
         delete :destroy, gallery_id: @gallery, id: @photo

@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     Dropzone.autoDiscover = false;
 
     var uploaderWrapper = $("#uploaderWrapper");
@@ -7,10 +7,52 @@ $(function(){
         paramName: uploaderWrapper.data("name"),
         init: function () {
             this.on("success", function (file, data) {
-                if(this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0){
+                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
                     window.location = data.return_url;
                 }
             })
         }
     });
+
+    $(".image_cropper").each(function() {
+        var img = $(this),
+            wrapper = img.closest(".image_wrapper");
+        img.Jcrop({
+            aspectRatio: 1,
+            onSelect: function(coords) {
+                updateCoords(img, wrapper, coords);
+            },
+            onChange: function(coords) {
+                updateCoords(img, wrapper, coords);
+            }
+        });
+    });
+
+    function updateCoords(img, wrapper, coords) {
+        wrapper.find(".crop_w").val(coords.w);
+        wrapper.find(".crop_h").val(coords.h);
+        wrapper.find(".crop_x").val(coords.x);
+        wrapper.find(".crop_y").val(coords.y);
+        updatePreview(img, wrapper, coords);
+    }
+
+    function updatePreview(img, wrapper, coords) {
+        wrapper.find(".preview").css({
+            width: Math.round(100/coords.w * img.width()) + "px",
+            height: Math.round(100/coords.h * img.height()) + "px",
+            marginLeft: "-" + Math.round(100/coords.w * coords.x) + "px",
+            marginTop: "-" + Math.round(100/coords.h * coords.y) + "px"
+        });
+    }
+
+    $(".photos_wrapper").sortable({
+        update: function (e, ui) {
+            $.ajax({
+                type : "post",
+                url: $(e.target).data("url"),
+                data: $(e.target).sortable("serialize")
+            });
+        }
+    });
+
 });

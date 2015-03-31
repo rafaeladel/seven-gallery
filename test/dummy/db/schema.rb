@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330150735) do
+ActiveRecord::Schema.define(version: 20150331182708) do
 
   create_table "seven_gallery_galleries", force: :cascade do |t|
     t.string   "title"
@@ -23,9 +23,13 @@ ActiveRecord::Schema.define(version: 20150330150735) do
     t.string   "caption"
     t.string   "image"
     t.integer  "gallery_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.boolean  "is_new",     default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_new",      default: true
+    t.boolean  "is_featured", default: false
+    t.text     "description"
+    t.string   "alt"
+    t.integer  "position",    default: 0
   end
 
   add_index "seven_gallery_photos", ["gallery_id"], name: "index_seven_gallery_photos_on_gallery_id"

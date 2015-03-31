@@ -7,7 +7,11 @@
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>
 
-
 <%= render "seven_gallery/photos/photo_wrapper" %>
 
-<%= render "seven_gallery/photos/photo", photos: @gallery.photos %>
+<%= link_to "rearrange", arrange_photos_gallery_path(@gallery) %>
+
+<%= render "seven_gallery/photos/photo", photos: @photos %>
+<div class="row">
+  <%= will_paginate @photos %>
+</div>
