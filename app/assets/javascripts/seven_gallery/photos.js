@@ -46,11 +46,22 @@ $(function () {
     }
 
     $(".photos_wrapper").sortable({
+        cursor: "move",
+        opacity: 0.5,
         update: function (e, ui) {
+            var status_holder = $(e.target).find(".arrange_status");
+            status_holder.show();
             $.ajax({
                 type : "post",
                 url: $(e.target).data("url"),
-                data: $(e.target).sortable("serialize")
+                data: $(e.target).sortable("serialize"),
+                success: function(data){
+                    if(data.success) {
+                        status_holder.hide();
+                    } else {
+                        status_holder.show().text("Error occurred.");
+                    }
+                }
             });
         }
     });

@@ -20,3 +20,16 @@
 .photos_wrapper div {
     margin: 10px 0;
 }
+
+.photos_wrapper div:hover {
+    cursor: crosshair;
+}
+
+.photos_wrapper div:ui-sortable-helper {
+    cursor: move;
+}
+
+.arrange_status {
+    display: none;
+}
+

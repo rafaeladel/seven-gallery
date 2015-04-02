@@ -2,6 +2,7 @@
   <h3>Photos: (Drag & Drop to rearrange) </h3>
 
   <div class="photos_wrapper" data-url="<%= url_for arrange_photos_gallery_path @gallery %>">
+    <p class="arrange_status">Saving..</p>
     <% @gallery.photos.each do |photo| %>
         <div id="photo_<%= photo.id %>">
           <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>

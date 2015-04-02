@@ -47,9 +47,14 @@ module SevenGallery
     end
 
     def post_arrange
-      puts Hash[params[:photo].zip ["position"]*params[:photo]. (0..params[:photo].size - 1)]
-      params
-      render json: { result: params[:photo] }
+      # turning [12,13,15,14,16] into {"12"=>0, "13"=>1, "15"=>2, "14"=>3, "16"=>4}
+      temp_hash = Hash[params[:photo].zip (0..params[:photo].size-1)]
+
+      # turning {"12"=>0, "13"=>1, .. } into {"12"=>{:position=>0}, "13"=>{:position=>1}, ...}
+      temp_hash.update(temp_hash) { |k, v| v = { position: v } }
+
+      $photos = Photo.update(temp_hash.keys, temp_hash.values)
+      render json: { success: $photos.any? ? true : false }
     end
 
     # DELETE /galleries/1
