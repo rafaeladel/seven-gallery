@@ -1,6 +1,5 @@
 module SevenGallery
   class Gallery < ActiveRecord::Base
-    has_many :photos, dependent: :destroy
-    default_scope { order("created_at desc") }
+    include SevenGallery::Concerns::Gallery
   end
 end
