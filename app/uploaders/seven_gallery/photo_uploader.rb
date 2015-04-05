@@ -31,9 +31,17 @@ module SevenGallery
     #   # do something
     # end
 
-    # Create different versions of your uploaded files:
     version :large do
       process :resize_to_limit => [700, 500]
+    end
+
+    # Create different versions of your uploaded files:
+    if SevenGallery::ENGINE_CONFIG.key?("filters")
+      SevenGallery::ENGINE_CONFIG["filters"].each do |key, value|
+        version key do
+          process :resize_to_limit => [value["width"], value["height"]]
+        end
+      end
     end
 
     version :thumb do
@@ -44,7 +52,7 @@ module SevenGallery
     def process_crop
       puts "test"
       if model.crop_x.present?
-        resize_to_limit(800, 600)
+        resize_to_limit(700, 500)
         manipulate! do |img|
           x = model.crop_x.to_i
           y = model.crop_y.to_i

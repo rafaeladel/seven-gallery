@@ -7,17 +7,17 @@ module SevenGallery::Concerns::GalleriesController
 
   # GET /galleries
     def index
-      @galleries = Gallery.paginate(page: params[:page], per_page: 10)
+      @galleries = SevenGallery::Gallery.paginate(page: params[:page], per_page: 10)
     end
 
   # GET /galleries/1
     def show
-      @photos = Photo.where(gallery_id: @gallery).paginate(page: params[:page], per_page: 5)
+      @photos = SevenGallery::Photo.where(gallery_id: @gallery).paginate(page: params[:page], per_page: 5)
     end
 
   # GET /galleries/new
     def new
-      @gallery = Gallery.new
+      @gallery = SevenGallery::Gallery.new
     end
 
   # GET /galleries/1/edit
@@ -26,7 +26,7 @@ module SevenGallery::Concerns::GalleriesController
 
   # POST /galleries
     def create
-      @gallery = Gallery.new(gallery_params)
+      @gallery = SevenGallery::Gallery.new(gallery_params)
 
       if @gallery.save
         redirect_to @gallery, notice: 'Gallery was successfully created.'
@@ -54,7 +54,7 @@ module SevenGallery::Concerns::GalleriesController
       # turning {"12"=>0, "13"=>1, .. } into {"12"=>{:position=>0}, "13"=>{:position=>1}, ...}
       temp_hash.update(temp_hash) { |k, v| v = { position: v } }
 
-      $photos = Photo.update(temp_hash.keys, temp_hash.values)
+      $photos = SevenGallery::Photo.update(temp_hash.keys, temp_hash.values)
       render json: { success: $photos.any? ? true : false }
     end
 
@@ -67,7 +67,7 @@ module SevenGallery::Concerns::GalleriesController
     private
   # Use callbacks to share common setup or constraints between actions.
     def get_gallery
-      @gallery = Gallery.find(params[:id])
+      @gallery = SevenGallery::Gallery.find(params[:id])
     end
 
   # Only allow a trusted parameter "white list" through.

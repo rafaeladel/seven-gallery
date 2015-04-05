@@ -7,7 +7,7 @@ module SevenGallery::Concerns::PhotosController
     before_action :get_new_photo, only: [:new, :create]
   end
   def index
-    @photos = Photo.all
+    @photos = SevenGallery::Photo.all
   end
 
   def show
@@ -37,13 +37,15 @@ module SevenGallery::Concerns::PhotosController
   end
 
   def photos_info
-    @photos = Photo.where(is_new: true)
+    @photos = SevenGallery::Photo.where(is_new: true)
   end
 
   def update_photos_info
-    @photos = Photo.update(params[:photos].keys, params[:photos].values)
+    @photos = SevenGallery::Photo.update(params[:photos].keys, params[:photos].values)
+    @valid_photos = @photos.reject { |photo| !photo.valid? }
     @photos.reject! { |photo| photo.valid? }
     if @photos.empty?
+      @valid_photos.map { |photo| photo.toggle!(:is_new) }
       redirect_to @gallery
     else
       render :photos_info
@@ -57,15 +59,15 @@ module SevenGallery::Concerns::PhotosController
 
   private
   def get_gallery
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = SevenGallery::Gallery.find(params[:gallery_id])
   end
 
   def get_photo
-    @photo = Photo.find_by(gallery_id: params[:gallery_id], id: params[:id])
+    @photo = SevenGallery::Photo.find_by(gallery_id: params[:gallery_id], id: params[:id])
   end
 
   def get_new_photo
-    @photo = Photo.new
+    @photo = SevenGallery::Photo.new
   end
 
   def photo_params
