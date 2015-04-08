@@ -12,7 +12,7 @@ module SevenGallery::Concerns::GalleriesController
 
   # GET /galleries/1
     def show
-      @photos = SevenGallery::Photo.where(gallery_id: @gallery).paginate(page: params[:page], per_page: 5)
+      @photos = @gallery.photos.paginate(page: params[:page])
     end
 
   # GET /galleries/new

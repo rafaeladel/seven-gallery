@@ -3,7 +3,7 @@ class CreateSevenGalleryPhotos < ActiveRecord::Migration
     create_table :seven_gallery_photos do |t|
       t.string :caption
       t.string :image
-      t.references :seven_gallery_galleries, index: true, foreign_key: true
+      t.references :seven_gallery_gallery, index: true
 
       t.timestamps null: false
     end

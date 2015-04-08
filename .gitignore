@@ -5,7 +5,7 @@ test/dummy/db/*.sqlite3
 test/dummy/db/*.sqlite3-journal
 test/dummy/log/*.log
 test/dummy/tmp/
-test/dummy/uploads/
+test/dummy/public/uploads
 test/dummy/.sass-cache
 .idea/
 seven_gallery-*
