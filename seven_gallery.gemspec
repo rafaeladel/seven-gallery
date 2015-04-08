@@ -11,7 +11,13 @@ Gem::Specification.new do |s|
   s.email       = ["rafael.adel20@gmail.com"]
   s.homepage    = "https://github.com/rafaeladel/seven-gallery"
   s.summary     = "A Rails gallery engine."
-  s.description = "A Rails gallery engine"
+  s.description = <<-EOF
+   "A Rails gallery engine.
+    Includes creating multiple galleries and photos. 
+    Multi uploading and cropping. 
+    Can extend gallery and photo model or controller. 
+    Configurable through yml configuration file."
+   EOF
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

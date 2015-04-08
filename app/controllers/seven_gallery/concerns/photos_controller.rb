@@ -63,7 +63,8 @@ module SevenGallery::Concerns::PhotosController
   end
 
   def get_photo
-    @photo = SevenGallery::Photo.find_by(gallery_id: params[:gallery_id], id: params[:id])
+    @photo = @gallery.photos.find(params[:id])
+    # @photo = SevenGallery::Photo.find_by(gallery_id: params[:gallery_id], id: params[:id])
   end
 
   def get_new_photo
