@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    seven_gallery (0.0.2)
+    seven_gallery (0.0.3)
       bootstrap-sass
       carrierwave
       coffee-rails
