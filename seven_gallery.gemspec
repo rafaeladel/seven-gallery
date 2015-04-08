@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = SevenGallery::VERSION
   s.authors     = ["rafael"]
   s.email       = ["rafael.adel20@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SevenGallery."
-  s.description = "TODO: Description of SevenGallery."
+  s.homepage    = "https://github.com/rafaeladel/seven-gallery"
+  s.summary     = "A Rails gallery engine."
+  s.description = "A Rails gallery engine"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "carrierwave"
   s.add_dependency "mini_magick"
   s.add_dependency "dropzonejs-rails"
-  s.add_dependency 'sass-rails'
   s.add_dependency 'uglifier'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'jcrop-rails-v2'
