@@ -30,6 +30,7 @@ module SevenGallery::Concerns::PhotosController
 
   def update
     if @photo.update(photo_params)
+      session["end_url"] ||= request.referer
       redirect_to @gallery, notice: 'Photo was successfully updated.'
     else
       render :edit
@@ -46,7 +47,7 @@ module SevenGallery::Concerns::PhotosController
     @photos.reject! { |photo| photo.valid? }
     if @photos.empty?
       @valid_photos.map { |photo| photo.toggle!(:is_new) }
-      redirect_to @gallery
+      redirect_to session.delete(:end_url) || @gallery
     else
       render :photos_info
     end

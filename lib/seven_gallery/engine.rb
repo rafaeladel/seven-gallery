@@ -9,5 +9,7 @@ require 'will_paginate'
 module SevenGallery
   class Engine < ::Rails::Engine
     isolate_namespace SevenGallery
+
+    config.seven_gallery = ActiveSupport::OrderedOptions.new
   end
 end

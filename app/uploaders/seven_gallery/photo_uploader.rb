@@ -50,7 +50,6 @@ module SevenGallery
     end
 
     def process_crop
-      puts "test"
       if model.crop_x.present?
         resize_to_limit(700, 500)
         manipulate! do |img|
