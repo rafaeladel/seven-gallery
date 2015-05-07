@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-gallery_one:
-  title: first_gallery
-
-gallery_two:
-  title: second_gallery

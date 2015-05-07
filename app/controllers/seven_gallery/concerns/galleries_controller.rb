@@ -54,8 +54,8 @@ module SevenGallery::Concerns::GalleriesController
       # turning {"12"=>0, "13"=>1, .. } into {"12"=>{:position=>0}, "13"=>{:position=>1}, ...}
       temp_hash.update(temp_hash) { |k, v| v = { position: v } }
 
-      $photos = SevenGallery::Photo.update(temp_hash.keys, temp_hash.values)
-      render json: { success: $photos.any? ? true : false }
+      photos = SevenGallery::Photo.update(temp_hash.keys, temp_hash.values)
+      render json: { success: photos.any? ? true : false }
     end
 
   # DELETE /galleries/1
@@ -72,6 +72,6 @@ module SevenGallery::Concerns::GalleriesController
 
   # Only allow a trusted parameter "white list" through.
     def gallery_params
-      params.require(:gallery).permit(:title)
+      params[:gallery].permit(:title)
     end
 end

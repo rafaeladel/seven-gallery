@@ -1,3 +1,3 @@
 Rails.application.configure do
-  # config.filters =
+  config.seven_gallery.filters = {}
 end

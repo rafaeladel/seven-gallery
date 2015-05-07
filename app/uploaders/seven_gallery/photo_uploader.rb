@@ -35,9 +35,10 @@ module SevenGallery
       process :resize_to_limit => [700, 500]
     end
 
+    filters = Rails.configuration.seven_gallery.filters
     # Create different versions of your uploaded files:
-    if SevenGallery::ENGINE_CONFIG.key?("filters")
-      SevenGallery::ENGINE_CONFIG["filters"].each do |key, value|
+    if filters
+      filters.each do |key, value|
         version key do
           process :resize_to_limit => [value["width"], value["height"]]
         end
