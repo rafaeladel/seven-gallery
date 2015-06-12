@@ -5,7 +5,7 @@ require 'carrierwave'
 require 'dropzonejs-rails'
 require 'jcrop/rails/v2'
 require 'will_paginate'
-require 'factory_girl'
+#require 'factory_girl'
 
 module SevenGallery
   class Engine < ::Rails::Engine

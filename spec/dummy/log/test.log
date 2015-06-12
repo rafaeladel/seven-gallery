@@ -14228,3 +14228,185 @@ Processing by SevenGallery::GalleriesController#destroy as HTML
 Redirected to http://test.host/seven_gallery/galleries
 Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.703656"], ["updated_at", "2015-06-12 14:26:57.703656"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SevenGallery::GalleriesController#index as HTML
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/index.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+  [1m[35mSevenGallery::Gallery Load (0.1ms)[0m  SELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries"  ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.744317"], ["updated_at", "2015-06-12 14:26:57.744317"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SevenGallery::GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSevenGallery::Gallery Load (0.1ms)[0m  SELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1  [["id", 1]]
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/show.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 51ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SevenGallery::GalleriesController#new as HTML
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/new.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.809119"], ["updated_at", "2015-06-12 14:26:57.809119"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SevenGallery::GalleriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSevenGallery::Gallery Load (0.0ms)[0m  SELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1  [["id", 1]]
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/edit.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "seven_gallery_galleries"[0m
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.817835"], ["updated_at", "2015-06-12 14:26:57.817835"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "seven_gallery_galleries"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.822656"], ["updated_at", "2015-06-12 14:26:57.822656"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.826884"], ["updated_at", "2015-06-12 14:26:57.826884"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.830762"], ["updated_at", "2015-06-12 14:26:57.830762"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36mSevenGallery::Gallery Load (0.1ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries"  ORDER BY created_at ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>""}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/new.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 46ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by SevenGallery::GalleriesController#create as HTML
+  Parameters: {"gallery"=>{"title"=>""}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/new.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.887508"], ["updated_at", "2015-06-12 14:26:57.887508"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#update as HTML
+  Parameters: {"gallery"=>{"title"=>"new_title"}, "id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "seven_gallery_galleries" SET "title" = ?, "updated_at" = ? WHERE "seven_gallery_galleries"."id" = ?[0m  [["title", "new_title"], ["updated_at", "2015-06-12 14:26:57.890745"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36mSevenGallery::Gallery Load (0.1ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.895052"], ["updated_at", "2015-06-12 14:26:57.895052"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#update as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}, "id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.900575"], ["updated_at", "2015-06-12 14:26:57.900575"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#update as HTML
+  Parameters: {"gallery"=>{"title"=>"a gallery"}, "id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/seven_gallery/galleries/1
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.906079"], ["updated_at", "2015-06-12 14:26:57.906079"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#update as HTML
+  Parameters: {"gallery"=>{"title"=>""}, "id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/edit.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.911849"], ["updated_at", "2015-06-12 14:26:57.911849"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#update as HTML
+  Parameters: {"gallery"=>{"title"=>""}, "id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /media/Misc2/seven-gallery/app/views/seven_gallery/galleries/edit.html.erb within layouts/seven_gallery/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.917664"], ["updated_at", "2015-06-12 14:26:57.917664"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "seven_gallery_galleries"[0m
+Processing by SevenGallery::GalleriesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSevenGallery::Gallery Load (0.0ms)[0m  SELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSevenGallery::Photo Load (0.1ms)[0m  SELECT "seven_gallery_photos".* FROM "seven_gallery_photos" WHERE "seven_gallery_photos"."seven_gallery_gallery_id" = ?  ORDER BY position asc, created_at desc  [["seven_gallery_gallery_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/seven_gallery/galleries
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "seven_gallery_galleries"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "seven_gallery_galleries" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "a gallery"], ["created_at", "2015-06-12 14:26:57.923999"], ["updated_at", "2015-06-12 14:26:57.923999"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SevenGallery::GalleriesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSevenGallery::Gallery Load (0.0ms)[0m  [1mSELECT  "seven_gallery_galleries".* FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  ORDER BY created_at desc LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSevenGallery::Photo Load (0.0ms)[0m  [1mSELECT "seven_gallery_photos".* FROM "seven_gallery_photos" WHERE "seven_gallery_photos"."seven_gallery_gallery_id" = ?  ORDER BY position asc, created_at desc[0m  [["seven_gallery_gallery_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "seven_gallery_galleries" WHERE "seven_gallery_galleries"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/seven_gallery/galleries
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
