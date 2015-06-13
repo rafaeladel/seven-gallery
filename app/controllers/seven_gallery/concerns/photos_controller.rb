@@ -19,6 +19,7 @@ module SevenGallery::Concerns::PhotosController
   def create
     @photo = @gallery.photos.create(photo_params)
     if @photo.save
+      session["end_url"] ||= request.referer
       render json: { :success => true, :return_url => photos_info_gallery_photos_path(@gallery) }
     else
       render 'new'
@@ -30,7 +31,6 @@ module SevenGallery::Concerns::PhotosController
 
   def update
     if @photo.update(photo_params)
-      session["end_url"] ||= request.referer
       redirect_to @gallery, notice: 'Photo was successfully updated.'
     else
       render :edit
