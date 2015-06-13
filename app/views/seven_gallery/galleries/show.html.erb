@@ -4,12 +4,12 @@
   <strong>Title:</strong>
   <%= @gallery.title %>
 </p>
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
+<%= link_to 'Edit', seven_gallery.edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', seven_gallery.galleries_path %>
 
 <%= render "seven_gallery/photos/photo_wrapper" %>
 
-<%= link_to "rearrange", arrange_photos_gallery_path(@gallery) %>
+<%= link_to "rearrange", seven_gallery.arrange_photos_gallery_path(@gallery) %>
 
 <%= render "seven_gallery/photos/photo", photos: @photos %>
 <div class="row">

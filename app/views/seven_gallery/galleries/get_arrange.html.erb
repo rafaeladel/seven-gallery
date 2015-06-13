@@ -6,11 +6,11 @@
     <% @gallery.photos.each do |photo| %>
         <div id="photo_<%= photo.id %>">
           <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>
-          <%= link_to 'edit', edit_gallery_photo_path(@gallery, photo) %> -
-          <%= link_to 'delete', gallery_photo_path(@gallery, photo), method: :delete, data: {confirm: 'Sure?'} %>
+          <%= link_to 'edit', seven_gallery.edit_gallery_photo_path(@gallery, photo) %> -
+          <%= link_to 'delete', seven_gallery.gallery_photo_path(@gallery, photo), method: :delete, data: {confirm: 'Sure?'} %>
         </div>
     <% end %>
   </div>
 </div>
 
-<%= link_to "Back", gallery_path(@gallery) %>
+<%= link_to "Back", seven_gallery.gallery_path(@gallery) %>
