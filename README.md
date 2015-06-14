@@ -12,7 +12,7 @@ mount SevenGallery::Engine, at: "/seven_gallery"
 2. Install engine migrations
 
 ```ruby 
-Rake seven_gallery:install:migrations 
+rake seven_gallery:install:migrations 
 ```
 
 3. connect SevenGallery::Gallery to your application model
