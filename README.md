@@ -17,7 +17,7 @@ A Rails gallery engine
 
 3. Connect SevenGallery::Gallery to your application model
 
-  First, create the relationship between your model and gallery
+  **First**, create the relationship between your model and gallery
   
   > app/models/my_model.rb
   
@@ -29,7 +29,7 @@ A Rails gallery engine
   end
   ```
 
-  Second, override the Gallery model, by creating seven_gallery inside models folder and place gallery.rb inside it.
+  **Second**, override the Gallery model, by creating seven_gallery inside models folder and place gallery.rb inside it.
   
   > app/models/seven_gallery/gallery.rb
   
@@ -41,9 +41,11 @@ A Rails gallery engine
     end
   end
   ```
-  Third, establish migrations
+  **Third**, establish migrations
   
-  rails generate migration add_gallery_to_my_model
+  ```ruby 
+  rails generate migration add_gallery_to_my_model 
+  ```
   
   > XXXXXXXXXXXXX_add_gallery_to_my_model.rb
   
