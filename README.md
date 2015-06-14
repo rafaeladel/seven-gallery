@@ -3,57 +3,57 @@ A Rails gallery engine
 
 ## Installation
 
-1. mount the engine in your application config/routes.rb file
+1. Mount the engine in your application config/routes.rb file
 
-```ruby 
-mount SevenGallery::Engine, at: "/seven_gallery" 
-```
+  ```ruby 
+  mount SevenGallery::Engine, at: "/seven_gallery" 
+  ```
 
 2. Install engine migrations
+  
+  ```ruby 
+  rake seven_gallery:install:migrations 
+  ```
 
-```ruby 
-rake seven_gallery:install:migrations 
-```
+3. Connect SevenGallery::Gallery to your application model
 
-3. connect SevenGallery::Gallery to your application model
-
-First, create the relationship between your model and gallery
-
-> app/models/my_model.rb
-
-```ruby
-module MyApp
-  class MyModel < ActiveRecord::Base
-    has_one :gallery, class_name: 'SevenGallery::Gallery', foreign_key: "my_model_id"
+  First, create the relationship between your model and gallery
+  
+  > app/models/my_model.rb
+  
+  ```ruby
+  module MyApp
+    class MyModel < ActiveRecord::Base
+      has_one :gallery, class_name: 'SevenGallery::Gallery', foreign_key: "my_model_id"
+    end
   end
-end
-```
+  ```
 
-Second, override the Gallery model, by creating seven_gallery inside models folder and place gallery.rb inside it.
-
-> app/models/seven_gallery/gallery.rb
-
-```ruby
-module SevenGallery
-  class Gallery < ActiveRecord::Base
-    include SevenGallery::Concerns::Gallery
-    belongs_to :my_model, class_name: "::MyModel", foreign_key: "my_model_id"
+  Second, override the Gallery model, by creating seven_gallery inside models folder and place gallery.rb inside it.
+  
+  > app/models/seven_gallery/gallery.rb
+  
+  ```ruby
+  module SevenGallery
+    class Gallery < ActiveRecord::Base
+      include SevenGallery::Concerns::Gallery
+      belongs_to :my_model, class_name: "::MyModel", foreign_key: "my_model_id"
+    end
   end
-end
-```
-Third, establish migrations
-
-rails generate migration add_gallery_to_my_model
-
-> XXXXXXXXXXXXX_add_gallery_to_my_model.rb
-
-```ruby
-class AddGalleryToMyModel < ActiveRecord::Migration
-  def change
-    add_reference :seven_gallery_galleries, :my_model, index: true, foreign_key: true, on_delete: :cascade
+  ```
+  Third, establish migrations
+  
+  rails generate migration add_gallery_to_my_model
+  
+  > XXXXXXXXXXXXX_add_gallery_to_my_model.rb
+  
+  ```ruby
+  class AddGalleryToMyModel < ActiveRecord::Migration
+    def change
+      add_reference :seven_gallery_galleries, :my_model, index: true, foreign_key: true, on_delete: :cascade
+    end
   end
-end
-```
+  ```
 
 That's it, you can access your model gallery like this: `@my_model.gallery`
 
