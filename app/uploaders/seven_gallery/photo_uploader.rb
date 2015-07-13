@@ -32,6 +32,7 @@ module SevenGallery
     # end
 
     version :large do
+      process :quality => 100
       process :resize_to_limit => [700, 500]
     end
 
@@ -46,6 +47,7 @@ module SevenGallery
     end
 
     version :thumb do
+      process :quality => 100
       process :process_crop
       process :resize_to_fit => [100, 100]
     end
