@@ -6,8 +6,8 @@ module SevenGallery::Concerns::Photo
     mount_uploader :image, SevenGallery::PhotoUploader
     attr_accessor :crop_x, :crop_y, :crop_h, :crop_w
     default_scope { order("position asc, created_at desc") }
-    self.per_page = 5
     after_update :crop_image
+    paginates_per 5
   end
 
   def crop_image
