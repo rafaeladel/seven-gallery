@@ -7,12 +7,12 @@ module SevenGallery::Concerns::GalleriesController
 
   # GET /galleries
     def index
-      @galleries = SevenGallery::Gallery.paginate(page: params[:page], per_page: 10)
+      @galleries = SevenGallery::Gallery.all.page(params[:page]).per(10)
     end
 
   # GET /galleries/1
     def show
-      @photos = @gallery.photos.paginate(page: params[:page])
+      @photos = @gallery.photos.page(params[:page])
     end
 
   # GET /galleries/new
