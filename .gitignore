@@ -9,3 +9,6 @@ test/dummy/public/uploads
 test/dummy/.sass-cache
 .idea/
 seven_gallery-*.gem
+
+HTML/
+Rails/
