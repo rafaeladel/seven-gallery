@@ -11,8 +11,6 @@
  * file per style scope.
  *
 
- *= require _bootstrap-sprockets
- *= require _bootstrap
  *= require jquery.Jcrop.css.erb
  *= require dropzone/dropzone
  *= require_tree .
