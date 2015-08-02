@@ -2,17 +2,23 @@ $(function () {
     Dropzone.autoDiscover = false;
 
     var uploaderWrapper = $("#uploaderWrapper");
-    uploaderWrapper.dropzone({
-        url: uploaderWrapper.data("url"),
-        paramName: uploaderWrapper.data("name"),
-        init: function () {
-            this.on("success", function (file, data) {
-                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                    window.location = data.return_url;
-                }
-            })
-        }
-    });
+    function initUploader(callback) {
+        uploaderWrapper.dropzone({
+            url: uploaderWrapper.data("url"),
+            paramName: uploaderWrapper.data("name"),
+            init: function () {
+                this.on("success", function (file, data) {
+                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                        if(typeof callback === "function") {
+                            callback(data);
+                        } else {
+                            window.location = data.return_url;
+                        }
+                    }
+                })
+            }
+        });
+    }
 
     $(".image_cropper").each(function() {
         var img = $(this),
