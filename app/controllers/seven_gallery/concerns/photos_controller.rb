@@ -3,7 +3,7 @@ module SevenGallery::Concerns::PhotosController
 
   included do
     before_action :get_gallery
-    before_action :get_photo, only: [:show, :edit, :update, :destroy, :toggle_featured]
+    before_action :get_photo, only: [:show, :edit, :update, :destroy, :featurize]
     before_action :get_new_photo, only: [:new, :create]
   end
 
