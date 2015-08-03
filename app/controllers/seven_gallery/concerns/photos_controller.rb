@@ -59,7 +59,7 @@ module SevenGallery::Concerns::PhotosController
     @photo.toggle(:is_featured)
 
     respond_to do |format|
-      format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+      format.html { redirect_to :back, notice: 'Photo was successfully updated.' }
       format.json { render json: {success: true} }
     end
   end
