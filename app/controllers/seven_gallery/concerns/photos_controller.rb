@@ -56,13 +56,11 @@ module SevenGallery::Concerns::PhotosController
 
   def featurize
     @gallery.photos.update_all({is_featured: false})
-    @photo.is_featured = true
+    @photo.toggle(:is_featured)
 
     respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
-        format.json { render json: { success: true } }
-      end
+      format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+      format.json { render json: {success: true} }
     end
   end
 
