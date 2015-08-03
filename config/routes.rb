@@ -5,6 +5,9 @@ SevenGallery::Engine.routes.draw do
       post "arrange_photos", to: "galleries#post_arrange"
     end
     resources :photos do
+      member do
+        get "featurize", to: "photos#featurize"
+      end
       collection do
         get "photos_info"
         post "update_photos_info"

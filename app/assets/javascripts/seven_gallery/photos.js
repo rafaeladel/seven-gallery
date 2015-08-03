@@ -22,7 +22,7 @@ $(function () {
             final_options = merge_options(default_options, options);
 
         uploaderWrapper.dropzone(final_options);
-    }
+    };
 
     $(".image_cropper").each(function () {
         var img = $(this),
