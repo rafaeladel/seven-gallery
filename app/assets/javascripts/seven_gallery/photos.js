@@ -1,34 +1,38 @@
+var initUploader;
 $(function () {
     Dropzone.autoDiscover = false;
 
-    var uploaderWrapper = $("#uploaderWrapper");
-    function initUploader(callback) {
-        uploaderWrapper.dropzone({
-            url: uploaderWrapper.data("url"),
-            paramName: uploaderWrapper.data("name"),
-            init: function () {
-                this.on("success", function (file, data) {
-                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                        if(typeof callback === "function") {
-                            callback(data);
-                        } else {
-                            window.location = data.return_url;
+    initUploader = function (options, callback) {
+        var uploaderWrapper = $("#uploaderWrapper"),
+            default_options = {
+                url: uploaderWrapper.data("url"),
+                paramName: uploaderWrapper.data("name"),
+                init: function () {
+                    this.on("success", function (file, data) {
+                        if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                            if (typeof callback === "function") {
+                                callback(data);
+                            } else {
+                                window.location = data.return_url;
+                            }
                         }
-                    }
-                })
-            }
-        });
+                    })
+                }
+            },
+            final_options = merge_options(default_options, options);
+
+        uploaderWrapper.dropzone(final_options);
     }
 
-    $(".image_cropper").each(function() {
+    $(".image_cropper").each(function () {
         var img = $(this),
             wrapper = img.closest(".image_wrapper");
         img.Jcrop({
             aspectRatio: 1,
-            onSelect: function(coords) {
+            onSelect: function (coords) {
                 updateCoords(img, wrapper, coords);
             },
-            onChange: function(coords) {
+            onChange: function (coords) {
                 updateCoords(img, wrapper, coords);
             }
         });
@@ -44,10 +48,10 @@ $(function () {
 
     function updatePreview(img, wrapper, coords) {
         wrapper.find(".preview").css({
-            width: Math.round(100/coords.w * img.width()) + "px",
-            height: Math.round(100/coords.h * img.height()) + "px",
-            marginLeft: "-" + Math.round(100/coords.w * coords.x) + "px",
-            marginTop: "-" + Math.round(100/coords.h * coords.y) + "px"
+            width: Math.round(100 / coords.w * img.width()) + "px",
+            height: Math.round(100 / coords.h * img.height()) + "px",
+            marginLeft: "-" + Math.round(100 / coords.w * coords.x) + "px",
+            marginTop: "-" + Math.round(100 / coords.h * coords.y) + "px"
         });
     }
 
@@ -58,11 +62,11 @@ $(function () {
             var status_holder = $(e.target).find(".arrange_status");
             status_holder.show();
             $.ajax({
-                type : "post",
+                type: "post",
                 url: $(e.target).data("url"),
                 data: $(e.target).sortable("serialize"),
-                success: function(data){
-                    if(data.success) {
+                success: function (data) {
+                    if (data.success) {
                         status_holder.hide();
                     } else {
                         status_holder.show().text("Error occurred.");
@@ -71,5 +75,12 @@ $(function () {
             });
         }
     });
+
+    function merge_options(obj1,obj2){
+        var obj3 = {};
+        for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+        for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+        return obj3;
+    }
 
 });
