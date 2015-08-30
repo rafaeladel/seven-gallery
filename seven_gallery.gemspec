@@ -26,8 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency "bootstrap-sass"
   s.add_dependency "sass-rails"
-  s.add_dependency "jquery-rails"
-  s.add_dependency "jquery-ui-rails"
   s.add_dependency "carrierwave"
   s.add_dependency "mini_magick"
   s.add_dependency "dropzonejs-rails"
