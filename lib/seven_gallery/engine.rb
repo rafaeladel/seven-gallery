@@ -1,5 +1,3 @@
-require 'jquery-rails'
-require 'jquery-ui-rails'
 require 'bootstrap-sass'
 require 'carrierwave'
 require 'dropzonejs-rails'
