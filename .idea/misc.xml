@@ -10,5 +10,9 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="rbenv: 2.2.0" project-jdk-type="RUBY_SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="rbenv: 2.2.2" project-jdk-type="RUBY_SDK" />
+>>>>>>> 23adbf94aec880c9ec8aa5e21170f124dcdd63ce
 </project>
