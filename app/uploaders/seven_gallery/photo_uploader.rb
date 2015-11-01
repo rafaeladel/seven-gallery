@@ -41,7 +41,7 @@ module SevenGallery
     if filters
       filters.each do |key, value|
         version key do
-          process :resize_to_limit => [value["width"], value["height"]]
+          process :resize_to_limit => [value[:width], value[:height]]
         end
       end
     end
