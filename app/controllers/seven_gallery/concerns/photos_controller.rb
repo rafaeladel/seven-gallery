@@ -19,7 +19,7 @@ module SevenGallery::Concerns::PhotosController
 
   def create
     @photo = @gallery.photos.new(photo_params)
-    @photo.position = @gallery.photos.length + 1
+    @photo.position = 2
     if @photo.save
       session["end_url"] ||= request.referer
       render json: {:success => true, :return_url => photos_info_gallery_photos_path(@gallery)}
