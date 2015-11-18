@@ -1,6 +1,7 @@
 var initUploader;
+Dropzone.autoDiscover = false;
+
 $(function () {
-    Dropzone.autoDiscover = false;
 
     initUploader = function (options, callback) {
         var uploaderWrapper = $("#uploaderWrapper"),
