@@ -4,25 +4,28 @@ Dropzone.autoDiscover = false;
 $(function () {
 
     initUploader = function (options, callback) {
-        var uploaderWrapper = $("#uploaderWrapper"),
-            default_options = {
-                url: uploaderWrapper.data("url"),
-                paramName: uploaderWrapper.data("name"),
-                init: function () {
-                    this.on("success", function (file, data) {
-                        if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                            if (typeof callback === "function") {
-                                callback(data);
-                            } else {
-                                window.location = data.return_url;
+        var uploaderWrapper = $(".uploaderWrapper");
+        $.each(uploaderWrapper, function (i, el) {
+            var default_options = {
+                    url: $(el).data("url"),
+                    paramName: $(el).data("name"),
+                    init: function () {
+                        this.on("success", function (file, data) {
+                            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                                if (typeof callback === "function") {
+                                    callback(data);
+                                } else {
+                                    window.location = data.return_url;
+                                }
                             }
-                        }
-                    })
-                }
-            },
-            final_options = merge_options(default_options, options);
+                        })
+                    }
+                },
+                final_options = merge_options(default_options, options);
 
-        uploaderWrapper.dropzone(final_options);
+            $(el).dropzone(final_options);
+        })
+
     };
 
     $(".image_cropper").each(function () {
